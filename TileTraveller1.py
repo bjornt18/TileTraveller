@@ -4,6 +4,7 @@ att = "(N)orth"
 while position != 3.1:
     print("You can travel:", att, position)
     direction = input("Direction: ")
+    direction = direction.lower()
     if direction == "n":
         if position == 1.1 or position == 1.2 or position == 3.2 or position == 2.1:
             position = position + 0.1
