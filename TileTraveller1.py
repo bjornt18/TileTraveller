@@ -2,19 +2,31 @@
 position = 1.1
 att = "(N)orth"
 while position != 3.1:
-    position = round(position, 1)
     print("You can travel:", att, position)
     direction = input("Direction: ")
     if direction == "n":
-        position = position + 0.1
+        if position == 1.1 or position == 1.2 or position == 3.2 or position == 2.1:
+            position = position + 0.1
+        else:
+            print("Not a valid direction!")
     elif direction == "s":
-        position = position - 0.1
+        if position == 1.2 or position == 1.3 or position == 2.2 or position == 3.3 or position == 3.2:
+            position = position - 0.1
+        else:
+            print("Not a valid direction!")
     elif direction == "w":
-        position = position - 1
+        if position == 2.3 or position == 2.2 or position == 3.3:
+            position = position - 1
+        else:
+            print("Not a valid direction!")
     elif direction == "e":
-        position = position + 1
+        if position == 1.2 or position == 1.3 or position == 2.3:
+            position = position + 1
+        else:
+            print("Not a valid direction!")
     else:
         print("Not a valid direction!")
+    position = round(position, 1)
     if position == 1.1:
         att = "(N)orth"
     if position == 1.2:
@@ -33,5 +45,4 @@ while position != 3.1:
         att = "(N)orth or (S)outh"
     if position == 3.3:
         att = "(W)est or (S)outh"
-    print(att)
 print("Victory!")
