@@ -19,43 +19,41 @@ def att1(a):
     if position == 3.3:
         att = "(S)outh or (W)est."
     return att
+
+def position1(p, d):
+    if d == "n":
+        if p == 1.1 or p == 1.2 or p == 3.2 or p == 2.1:
+            p = p + 0.1
+        return p
+    elif d == "s":
+        if p == 1.2 or p == 1.3 or p == 2.2 or p == 3.3 or p == 3.2:
+            p = p - 0.1
+        return p
+    elif d == "w":
+        if p == 2.3 or p == 2.2 or p == 3.3:
+            p = p - 1
+        return p
+    elif d == "e":
+        if p == 1.2 or p == 1.3 or p == 2.3:
+            p = p + 1
+        return p
+    else:
+        return p
+
 position = 1.1
-att = "(N)orth."
-villa = 0
+villa = 1
 while position != 3.1:
     if villa == 1:
-        direction = input("Direction: ").lower()
-        villa = villa - 1
-    else:
         print("You can travel:", att1(position))
         direction = input("Direction: ").lower()
-    if direction == "n":
-        if position == 1.1 or position == 1.2 or position == 3.2 or position == 2.1:
-            position = position + 0.1
-        else:
-            print("Not a valid direction!")
-            villa = villa + 1
-    elif direction == "s":
-        if position == 1.2 or position == 1.3 or position == 2.2 or position == 3.3 or position == 3.2:
-            position = position - 0.1
-        else:
-            print("Not a valid direction!")
-            villa = villa + 1
-    elif direction == "w":
-        if position == 2.3 or position == 2.2 or position == 3.3:
-            position = position - 1
-        else:
-            print("Not a valid direction!")
-            villa = villa + 1
-    elif direction == "e":
-        if position == 1.2 or position == 1.3 or position == 2.3:
-            position = position + 1
-        else:
-            print("Not a valid direction!")
-            villa = villa + 1
     else:
+        direction = input("Direction: ").lower()
+        villa = villa - 1
+    if position1(position, direction) == position:
         print("Not a valid direction!")
         villa = villa + 1
+    else:
+        position = position1(position, direction)
     position = round(position, 1)
 print("Victory!")
 #Github: https://github.com/bjornt18/TileTraveller
