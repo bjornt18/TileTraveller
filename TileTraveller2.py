@@ -1,49 +1,42 @@
 #Byrja á því að búa til svæðið sem leikmaðurinn er í, leyfa leikmanninum að færa sig í átt sem hægt er að færa sig í. Setja síðan inn markmiðið, staðinn sem leikmaðurinn þarf að komast til að vinna
-def att(a):
-    if a == 1.1:
+def att1(a):
+    if position == 1.1:
         att = "(N)orth."
-    if a == 1.2:
+    if position == 1.2:
         att = "(N)orth or (E)ast or (S)outh."
-    if a == 1.3:
+    if position == 1.3:
         att = "(E)ast or (S)outh."
-    if a == 2.1:
+    if position == 2.1:
         att = "(N)orth."
-    if a == 2.2:
+    if position == 2.2:
         att = "(S)outh or (W)est."
-    if a == 2.3:
+    if position == 2.3:
         att = "(E)ast or (W)est."
-    if a == 3.1:
+    if position == 3.1:
         att = "(N)orth."
-    if a == 3.2:
+    if position == 3.2:
         att = "(N)orth or (S)outh."
-    if a == 3.3:
+    if position == 3.3:
         att = "(S)outh or (W)est."
     return att
-def position_n(b):
-        b == 1.1 or b == 1.2 or b == 3.2 or b == 2.1
-        return b
-def position_s(b):
-        b == 1.2 or b == 1.3 or b == 2.2 or b == 3.3 or b == 3.2
-        return b
-
-
 position = 1.1
+att = "(N)orth."
 villa = 0
 while position != 3.1:
     if villa == 1:
         direction = input("Direction: ").lower()
         villa = villa - 1
     else:
-        print("You can travel:", att(position))
+        print("You can travel:", att1(position))
         direction = input("Direction: ").lower()
     if direction == "n":
-        if position_n:
+        if position == 1.1 or position == 1.2 or position == 3.2 or position == 2.1:
             position = position + 0.1
         else:
             print("Not a valid direction!")
             villa = villa + 1
     elif direction == "s":
-        if  position_s:
+        if position == 1.2 or position == 1.3 or position == 2.2 or position == 3.3 or position == 3.2:
             position = position - 0.1
         else:
             print("Not a valid direction!")
